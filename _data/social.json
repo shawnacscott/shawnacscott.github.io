@@ -1,5 +1,15 @@
 [
   {
+    "name": "Instagram",
+    "link": "https://www.instagram.com/hearthfireclay",
+    "image": "images/social/instagram.svg"
+  },
+  {
+    "name": "YouTube",
+    "link": "http://youtube.com/@hearthfireclay",
+    "image": "images/social/youtube.svg"
+  },
+  {
       "name": "Facebook",
       "link": "https://www.facebook.com/profile.php?id=61587512300206",
       "image": "images/social/facebook.svg"
@@ -8,10 +18,5 @@
       "name": "Email",
       "link": "mailto:info@hearthfireclay.org",
       "image": "images/social/email.svg"
-  },
-  {
-      "name": "Instagram",
-      "link": "https://www.instagram.com/hearthfireclay",
-      "image": "images/social/instagram.svg"
   }
 ]

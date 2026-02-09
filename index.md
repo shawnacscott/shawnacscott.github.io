@@ -1,13 +1,13 @@
 ---
-title: Jekyll Serif Theme
+title: Hearthfire Clay
 layout: home
-description: Jekyll Serif contains content types for a typical business website. The theme is fully responsive, blazing fast and artfully illustrated.
-intro_image: "images/illustrations/pointing.svg"
+description: Lorem ipsum dolor sit amet,
+intro_image: "images/illustrations/pots-and-tools-zoom-max.jpeg"
 intro_image_absolute: true
 intro_image_hide_on_mobile: true
-show_call_box: true
+#show_call_box: true
 ---
 
-# Serif - A Jekyll Business Theme.
+# Fire imagination. Find your hearth.
 
-Serif contains content types for a typical business website. The theme is fully responsive, blazing fast and artfully illustrated.
+Hearthfire Clay is Gilroy's community ceramics studio where beginners become creators and clay becomes community. One class at a time.
