@@ -1,0 +1,16 @@
+.responsive-form-container {
+  position: relative;
+  overflow: hidden;
+  /* Optional: use padding-bottom to control aspect ratio, e.g., 50% for 2:1 ratio.
+     If the form's height is variable, it may require some vertical scrolling */
+  /* padding-bottom: 50%; */
+  height: auto; /* Allow height to adjust */
+}
+
+.responsive-form-container iframe {
+  position: absolute; /* Position the iframe within the container */
+  top: 0;
+  left: 0;
+  width: 100%; /* Make iframe fill the width */
+  height: 100%; /* Make iframe fill the height of the container */
+}
