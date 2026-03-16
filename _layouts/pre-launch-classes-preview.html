@@ -4,19 +4,11 @@ bodyClass: "page-basic"
 ---
 
 <div class="container pb-6 pt-6 pt-md-10 pb-md-10">
-    <div class="row justify-content-start">
-        <div class="col-12 col-md-8">
-            <div class="class class-single">
-                <h1 class="title">{{page.title}}</h1>
-                <div class="content">{{content}}</div>
-                <h2>Class List</h2>
-                <div class="kilnfire-classes" data-org-id="308" data-view="list"></div>
-                <h2>Class Blocks</h2>
-                <div class="kilnfire-classes" data-org-id="308" data-view="blocks"></div>
-                <h2>Class Calendar</h2>
-                <div class="kilnfire-classes" data-org-id="308" data-view="calendar"></div>
-                <script src="https://kilnfire.com/classembed.js"></script>
-            </div>
-        </div>
-    </div>
+    <h1 class="title">{{page.title}}</h1>
+    <a href="#calendar-view">See calendar view</a>
+    <div class="content">{{content}}</div>
+    <div class="kilnfire-classes" data-org-id="308" data-view="blocks"></div>
+    <h2 id="calendar-view">Class Calendar</h2>
+    <div class="kilnfire-classes" data-org-id="308" data-view="calendar"></div>
+    <script src="https://kilnfire.com/classembed.js"></script>
 </div>
