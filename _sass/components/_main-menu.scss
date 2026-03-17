@@ -10,14 +10,47 @@
     > li {
       list-style: none;
       font-size: 1rem;
+      position: relative;
+      &:hover {
+        > .sub-menu {
+          display: block;
+        }
+        > a .caret {
+          transform: rotate(180deg);
+        }
+      }
       > a {
         padding: 10px 12px 10px 12px;
-        display: inline-block;
+        display: flex;
+        align-items: center;
+        gap: 4px;
         font-weight: normal;
         text-decoration: none;
         color: $primary;
+        .caret {
+          transition: transform 0.2s ease;
+        }
         &:hover {
           text-decoration: underline;
+        }
+        &.button {
+          height: 34px;
+          line-height: 34px;
+          padding: 0 15px;
+          margin-left: 10px;
+          text-transform: none;
+          font-size: 16px;
+          letter-spacing: 0;
+          border-radius: 8px;
+          background: $primary;
+          color: #ffffff;
+          &:hover {
+            text-decoration: none;
+            background-color: lighten($primary, 10%);
+          }
+          .caret {
+            stroke: #fff;
+          }
         }
       }
       &.active {
@@ -27,6 +60,31 @@
           &:hover {
             text-decoration: none;
             transition: all 225ms ease-in 0s;
+          }
+        }
+      }
+      .sub-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #fff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        min-width: 200px;
+        padding: 10px 0;
+        z-index: 100;
+        li {
+          list-style: none;
+          a {
+            display: block;
+            padding: 8px 20px;
+            color: $primary;
+            text-decoration: none;
+            font-size: 0.9rem;
+            &:hover {
+              background: #f8f8f8;
+              text-decoration: none;
+            }
           }
         }
       }

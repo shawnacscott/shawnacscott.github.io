@@ -1,16 +1,38 @@
 main:
-  - name: "Classes"
-    url: "/classes/"
-    weight: 2
-  - name: "Team"
-    url: "/team/"
-    weight: 3
   - name: "About"
     url: "/about/"
+    weight: 2
+    children:
+      - name: "About Hearthfire Clay"
+        url: "/about/"
+        weight: 1
+      - name: "Our Team"
+        url: "/team/"
+        weight: 2
+#  - name: "Memberships"
+#    url: "/become-a-member/"
+#    weight: 3
+  - name: "Support"
     weight: 4
-  - name: "Contact"
-    url: "/contact/"
+    children:
+      - name: "Donate"
+        url: "/donate/"
+        weight: 1
+      - name: "Volunteer"
+        url: "/volunteer/"
+        weight: 2
+  - name: "Register for a Class →"
+    url: "/classes/"
     weight: 5
+    class: "button"
+    remove_caret: true
+    children:
+      - name: "All Classes"
+        url: "/classes/"
+        weight: 1
+      - name: "Purchase Gift Cards"
+        url: "https://hearthfireclay.kilnfire.com/gift-card"
+        weight: 2
 
 footer:
   - name: "Home"
@@ -19,6 +41,9 @@ footer:
   - name: "Privacy Policy"
     url: "/privacy/"
     weight: 2
+  - name: "Terms of Service"
+    url: "/terms-of-service/"
+    weight: 3
   - name: "Contact"
     url: "/contact/"
-    weight: 3
+    weight: 4

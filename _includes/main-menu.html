@@ -2,8 +2,24 @@
   {% assign mainmenu = site.data.menus.main | sort: 'weight'  %}
   <ul>
     {% for item in mainmenu %}
-    <li class="{% if item.url == page.url %}active{% endif %}">
-      <a href="{{ item.url | relative_url }}">{{ item.name }}</a>
+    <li class="{% if item.url == page.url %}active{% endif %}{% if item.children %} has-children{% endif %}">
+      <a href="{{ item.url | relative_url }}"{% if item.class %} class="{{ item.class }}"{% endif %}>
+        {{ item.name }}
+        {% if item.children and item.remove_caret != true %}
+        <svg class="caret" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2.5 3.5L5 6L7.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        {% endif %}
+      </a>
+      {% if item.children %}
+      <ul class="sub-menu">
+        {% for child in item.children %}
+        <li>
+          <a href="{{ child.url | relative_url }}">{{ child.name }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
     </li>
     {% endfor %}
   </ul>

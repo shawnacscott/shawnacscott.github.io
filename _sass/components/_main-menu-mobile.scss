@@ -52,13 +52,41 @@
       opacity: 0;
       padding: 10px;
       a {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
         position: relative;
         color: #ffffff;
         text-decoration: none;
         overflow: hidden;
         &:hover {
           opacity: 0.8;
+        }
+        &.button {
+          background: #fff;
+          color: $primary;
+          padding: 5px 20px;
+          border-radius: 8px;
+          margin: 10px auto;
+          display: flex;
+          width: fit-content;
+          .caret {
+            stroke: $primary;
+          }
+        }
+      }
+      .sub-menu {
+        list-style: none;
+        padding: 0;
+        margin-top: 5px;
+        li {
+          opacity: 1; // Show immediately if parent is shown
+          padding: 5px;
+          a {
+            font-size: 20px;
+            opacity: 0.8;
+          }
         }
       }
     }
