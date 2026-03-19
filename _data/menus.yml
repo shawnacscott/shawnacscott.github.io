@@ -39,10 +39,10 @@ footer:
     url: "/"
     weight: 1
   - name: "Privacy Policy"
-    url: "/privacy/"
+    url: "/policies/#privacy-policy"
     weight: 2
   - name: "Terms of Service"
-    url: "/terms-of-service/"
+    url: "/policies/#terms-of-service"
     weight: 3
   - name: "Contact"
     url: "/contact/"

@@ -59,7 +59,9 @@ $min-contrast-ratio: 4.2;
 // @import "bootstrap/transitions";
 // @import "bootstrap/dropdown";
 // @import "bootstrap/button-group";
-// @import "bootstrap/nav";
+@import "bootstrap/nav";
+@import "bootstrap/accordion";
+@import "bootstrap/transitions";
 // @import "bootstrap/navbar";
 // @import "bootstrap/card";
 // @import "bootstrap/accordion";
@@ -111,6 +113,7 @@ $min-contrast-ratio: 4.2;
 @import "pages/page-home";
 @import "pages/page-teams";
 @import "pages/page-class";
+@import "pages/page-policies";
 
 body {
   font-size: 16px;

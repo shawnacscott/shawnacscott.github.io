@@ -1,0 +1,145 @@
+---
+layout: page
+bodyClass: "page-policies"
+---
+
+{{ content }}
+
+{% if site.data.policies %}
+<div class="d-none d-md-block">
+    <ul class="nav nav-tabs mb-4" id="policyTabs" role="tablist">
+        {% for policy in site.data.policies %}
+        {% assign policy_id = policy.heading | slugify %}
+        <li class="nav-item" role="presentation">
+            <button class="nav-link {% if forloop.first %}active{% endif %}" id="tab-{{ policy_id }}" data-bs-toggle="tab" data-bs-target="#content-{{ policy_id }}" type="button" role="tab" aria-controls="content-{{ policy_id }}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">
+                {{ policy.heading }}
+            </button>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="accordion d-md-none mb-4" id="policyAccordion">
+    {% for policy in site.data.policies %}
+    {% assign policy_id = policy.heading | slugify %}
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="heading-{{ policy_id }}">
+            <button class="accordion-button {% unless forloop.first %}collapsed{% endunless %}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ policy_id }}" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="collapse-{{ policy_id }}">
+                {{ policy.heading }}
+            </button>
+        </h2>
+        <div id="collapse-{{ policy_id }}" class="accordion-collapse collapse {% if forloop.first %}show{% endif %}" aria-labelledby="heading-{{ policy_id }}">
+            <div class="accordion-body">
+                {% if policy.external_link %}
+                    <div class="mb-3"><a href="{{ policy.external_link }}" target="_blank">Open in a new tab <svg class="external-link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></div>
+                {% endif %}
+                {% if policy.embed_link %}
+                    <div class="policy-iframe-container"><iframe src="{{ policy.embed_link }}" frameborder="0"></iframe></div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="tab-content d-none d-md-block" id="policyTabsContent">
+    {% for policy in site.data.policies %}
+    {% assign policy_id = policy.heading | slugify %}
+    <div class="tab-pane fade {% if forloop.first %}show active{% endif %}" id="content-{{ policy_id }}" role="tabpanel" aria-labelledby="tab-{{ policy_id }}">
+        {% if policy.external_link %}
+            <div class="mb-3"><a href="{{ policy.external_link }}" target="_blank">Open in a new tab <svg class="external-link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></div>
+        {% endif %}
+        {% if policy.embed_link %}
+            <div class="policy-iframe-container"><iframe src="{{ policy.embed_link }}" frameborder="0"></iframe></div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const tabButtons = document.querySelectorAll('[data-bs-toggle="tab"]');
+    const accordionButtons = document.querySelectorAll('.accordion-button');
+
+    function activatePolicy(policyId, toggleAccordion = false) {
+        // Find elements for the selected policy
+        const tab = document.getElementById('tab-' + policyId);
+        const pane = document.getElementById('content-' + policyId);
+        const accButton = document.querySelector(`[data-bs-target="#collapse-${policyId}"]`);
+        const accCollapse = document.getElementById('collapse-' + policyId);
+
+        const isCurrentlyActive = accButton && !accButton.classList.contains('collapsed');
+
+        // Deactivate all
+        document.querySelectorAll('.nav-link, .tab-pane, .accordion-button, .accordion-collapse').forEach(el => {
+            el.classList.remove('active', 'show');
+            if (el.classList.contains('accordion-button')) el.classList.add('collapsed');
+            if (el.hasAttribute('aria-selected')) el.setAttribute('aria-selected', 'false');
+            if (el.hasAttribute('aria-expanded')) el.setAttribute('aria-expanded', 'false');
+        });
+
+        if (toggleAccordion && isCurrentlyActive) {
+            // If it was already active and we're toggling, leave it deactivated (already done above)
+            history.pushState(null, null, window.location.pathname + window.location.search);
+            return;
+        }
+
+        // Activate tab
+        if (tab && pane) {
+            tab.classList.add('active');
+            tab.setAttribute('aria-selected', 'true');
+            pane.classList.add('active', 'show');
+        }
+
+        // Activate accordion
+        if (accButton && accCollapse) {
+            accButton.classList.remove('collapsed');
+            accButton.setAttribute('aria-expanded', 'true');
+            accCollapse.classList.add('show');
+        }
+
+        // Scroll into view
+        const elementToScrollTo = window.innerWidth >= 768 ? tab : accButton;
+        if (elementToScrollTo && !toggleAccordion) {
+            setTimeout(() => {
+                elementToScrollTo.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+
+        if (window.location.hash !== '#' + policyId) {
+            history.pushState(null, null, '#' + policyId);
+        }
+    }
+
+    // Handle clicks on tabs
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const policyId = this.id.replace('tab-', '');
+            activatePolicy(policyId);
+        });
+    });
+
+    // Handle clicks on accordion buttons
+    accordionButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const policyId = this.getAttribute('data-bs-target').replace('#collapse-', '');
+            activatePolicy(policyId, true);
+        });
+    });
+
+    // Handle initial hash
+    if (window.location.hash) {
+        const hash = window.location.hash.substring(1);
+        activatePolicy(hash);
+    }
+
+    // Handle hash change (e.g., from footer links while already on the page)
+    window.addEventListener('hashchange', function() {
+        const hash = window.location.hash.substring(1);
+        if (hash) {
+            activatePolicy(hash);
+        }
+    });
+});
+</script>
