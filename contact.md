@@ -4,8 +4,6 @@ layout: contact
 description: Contact
 ---
 
-Questions or comments? Please reach out, and we'll get back to you as soon as possible.
-
 | Day       | Opening Hours |
 | --------- |---------------|
 | Monday    | 9 AM - 2 PM   |
