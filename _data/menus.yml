@@ -1,7 +1,7 @@
 main:
   - name: "About"
     url: "/about/"
-    weight: 2
+    weight: 1
     children:
       - name: "About Hearthfire Clay"
         url: "/about/"
@@ -15,11 +15,8 @@ main:
       - name: "Visiting Our Location"
         url: "/contact/#visiting-our-location"
         weight: 4
-#  - name: "Memberships"
-#    url: "/become-a-member/"
-#    weight: 5
   - name: "Support"
-    weight: 4
+    weight: 2
     children:
       - name: "Donate"
         url: "/donate/"
@@ -27,9 +24,12 @@ main:
       - name: "Volunteer"
         url: "/volunteer/"
         weight: 2
+  - name: "Memberships"
+    url: "https://hearthfireclay.kilnfire.com/join-waitlist"
+    weight: 3
   - name: "Sign in"
     url: "https://hearthfireclay.kilnfire.com"
-    weight: 4.5
+    weight: 4
     class: "button button-outline"
   - name: "Register for a Class →"
     url: "/classes/"
