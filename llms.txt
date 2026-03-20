@@ -1,0 +1,12 @@
+# Hearthfire Clay
+
+Hearthfire Clay is Gilroy's community ceramics studio. We are a nonprofit ceramics studio dedicated to lowering barriers to art education and building community through ceramics.
+
+## Core Pages
+
+- [Home](https://www.hearthfireclay.org/) - Overview of the studio and community.
+- [About](https://www.hearthfireclay.org/about/) - Our mission and values.
+- [Classes](https://www.hearthfireclay.org/classes/) - Ceramic art education and workshops.
+- [Contact](https://www.hearthfireclay.org/contact/) - Location, hours, and contact information.
+- [Volunteer](https://www.hearthfireclay.org/volunteer/) - How to get involved with the studio.
+- [Donate](https://www.hearthfireclay.org/donate/) - Supporting our nonprofit mission.

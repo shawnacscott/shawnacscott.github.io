@@ -1,4 +1,5 @@
 baseurl: '/'
+url: 'https://www.hearthfireclay.org'
 permalink: pretty
 title: 'Hearthfire Clay'
 
@@ -37,6 +38,7 @@ sass:
 
 plugins:
   - jekyll-environment-variables
+  - jekyll-sitemap
 
 exclude:
   - Gemfile
