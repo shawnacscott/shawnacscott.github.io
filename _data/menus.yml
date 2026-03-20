@@ -9,9 +9,15 @@ main:
       - name: "Our Team"
         url: "/team/"
         weight: 2
+      - name: "Contact Information & Hours"
+        url: "/contact/"
+        weight: 3
+      - name: "Visiting Our Location"
+        url: "/contact/#visiting-our-location"
+        weight: 4
 #  - name: "Memberships"
 #    url: "/become-a-member/"
-#    weight: 3
+#    weight: 5
   - name: "Support"
     weight: 4
     children:
@@ -39,18 +45,12 @@ main:
         weight: 2
 
 footer:
-  - name: "Home"
-    url: "/"
-    weight: 1
   - name: "Privacy Policy"
     url: "/policies/#privacy-policy"
     weight: 2
   - name: "Terms of Service"
     url: "/policies/#terms-of-service"
     weight: 3
-  - name: "Policies"
+  - name: "All Policies"
     url: "/policies/"
     weight: 3
-  - name: "Contact"
-    url: "/contact/"
-    weight: 4
