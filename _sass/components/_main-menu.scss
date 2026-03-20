@@ -51,6 +51,16 @@
           .caret {
             stroke: #fff;
           }
+          &.button-outline {
+            background: transparent;
+            border: 1px solid $primary;
+            color: $primary;
+            &:hover {
+              background-color: rgba($primary, 0.1);
+              color: $primary;
+              text-decoration: none;
+            }
+          }
         }
       }
       &.active {

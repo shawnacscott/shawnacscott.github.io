@@ -21,6 +21,10 @@ main:
       - name: "Volunteer"
         url: "/volunteer/"
         weight: 2
+  - name: "Sign in"
+    url: "https://hearthfireclay.kilnfire.com"
+    weight: 4.5
+    class: "button button-outline"
   - name: "Register for a Class →"
     url: "/classes/"
     weight: 5
