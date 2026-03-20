@@ -1,0 +1,73 @@
+{% if page.url == "/" or page.url == "/index.html" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "{{ site.title | escape }}",
+  "url": "{{ site.url }}{{ site.baseurl }}/",
+  "logo": "{{ site.url }}{{ site.baseurl }}/{{ site.logo.desktop }}",
+  "description": "{{ page.description | default: site.description | escape }}",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "64 W 6th St",
+    "addressLocality": "Gilroy",
+    "addressRegion": "CA",
+    "postalCode": "95020",
+    "addressCountry": "US"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "{{ site.data.contact.phone }}",
+    "contactType": "customer service"
+  },
+  "sameAs": [
+    {% assign social_links = site.data.social | where_exp: "item", "item.link contains 'http'" %}{% for item in social_links %}"{{ item.link }}"{% unless forloop.last %},{% endunless %}{% endfor %}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ site.title | escape }}",
+  "url": "{{ site.url }}{{ site.baseurl }}"
+}
+</script>
+{% endif %}
+
+{% if page.layout == "class" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "{{ page.title | escape }}",
+  "description": "{{ content | strip_html | truncatewords: 50 | escape }}",
+  "provider": {
+    "@type": "Organization",
+    "name": "{{ site.title | escape }}",
+    "sameAs": "{{ site.url }}{{ site.baseurl }}/"
+  },
+  "offers": [{
+    "@type": "Offer",
+    "category": "Paid"
+  }]
+}
+</script>
+{% endif %}
+
+{% if page.layout == "team" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ page.title | escape }}",
+  "jobTitle": "{{ page.jobtitle | escape }}",
+  "image": "{{ site.url }}{{ site.baseurl }}/{{ page.image }}",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "{{ site.title | escape }}"
+  },
+  "description": "{{ content | strip_html | truncatewords: 50 | escape }}"
+}
+</script>
+{% endif %}

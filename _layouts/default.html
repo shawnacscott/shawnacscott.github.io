@@ -26,6 +26,7 @@
   {% if site.data.seo.meta_twitter_site %}<meta name="twitter:site" content="{{ site.seo.meta_twitter_site }}"/>{% endif %}
   {% if site.data.seo.meta_twitter_creator %}<meta name="twitter:creator" content="{{ site.seo.meta_twitter_creator }}"/>{% endif %}
 
+  {% include seo-schema.html %}
 </head>
 
 <body class='page {{layout.bodyClass}}'>
