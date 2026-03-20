@@ -1,36 +1,16 @@
 ---
 layout: default
-bodyClass: "page-classes"
+bodyClass: "page-basic"
 ---
 
-<div class="intro">
-  <div class="container">
-    <div class="row justify-content-start">
-      <div class="col-12 col-md-7 col-lg-6 order-2 order-md-1">
-        {{ content }}
-      </div>
-      {% if page.intro_image %}
-      <div class="col-12 col-md-5 col-lg-6 order-1 order-md-2 position-relative">
-        <img alt={{ page.title }} class="intro-image{% if page.intro_image_absolute %} intro-image-absolute{% endif %}{% if page.intro_image_hide_on_mobile %} intro-image-hide-mobile{% endif %}" src="{{ page.intro_image | relative_url }}" />
-      </div>
-      {% endif %}
-    </div>
+<div class="container pb-6 pt-6 pt-md-10 pb-md-10">
+  <h1 class="title">{{page.title}}</h1>
+  <a href="#calendar-view">See calendar view</a>
+  <div class="content">{{content}}</div>
+  <div class="kilnfire-classes" data-org-id="308" data-view="blocks"></div>
+  <script src="https://kilnfire.com/classembed.js"></script>
+  <h2 id="calendar-view">Class Calendar</h2>
+  <div>
+    <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FLos_Angeles&showPrint=0&src=Ym5hOXFkMDltZ2tjbjY2aGZ2YXJvczBqNnJrNWdlY2FAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23f09300" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
   </div>
 </div>
-
-<!--<div class="container pt-6 pb-6">-->
-<!--  <div class="row">-->
-<!--    {% for class in site.classes %}-->
-<!--    <div class="col-12 col-md-6 mb-3">-->
-<!--      <div class="class class-summary">-->
-<!--        <div class="class-content">-->
-<!--          <h2 class="class-title">-->
-<!--            <a href="{{ class.url | relative_url }}">{{ class.title }}</a>-->
-<!--          </h2>-->
-<!--          <p>{{ class.excerpt | markdownify | strip_html | truncate: 100 }}</p>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    {% endfor %}-->
-<!--  </div>-->
-<!--</div>-->
