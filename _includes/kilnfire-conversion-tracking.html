@@ -31,6 +31,12 @@
       'event_label': document.title
     };
 
+    // Add value if class price is available
+    if (typeof window.classPrice !== 'undefined' && window.classPrice > 0) {
+      eventParams.value = window.classPrice;
+      eventParams.currency = 'USD';
+    }
+
     // Send the conversion event
     gtag('event', CONFIG.eventName, eventParams);
 

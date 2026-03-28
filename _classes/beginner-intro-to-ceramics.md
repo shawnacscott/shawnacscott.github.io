@@ -1,5 +1,6 @@
 ---
 title: "🫖 Beginner Intro to Ceramics: 6-weeks"
+price: 400
 ---
 
 $400 Per Person / Ages 16 and up

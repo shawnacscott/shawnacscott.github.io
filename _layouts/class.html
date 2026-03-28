@@ -14,4 +14,9 @@ bodyClass: "page-class"
   </div>
 </div>
 
+{% if page.price %}
+<script>
+  window.classPrice = {{ page.price }};
+</script>
+{% endif %}
 {% include kilnfire-conversion-tracking.html %}
