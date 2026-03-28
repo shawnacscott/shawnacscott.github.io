@@ -1,0 +1,120 @@
+{% if jekyll.environment == "production" %}
+<script>
+(function() {
+  'use strict';
+
+  // Configuration
+  const CONFIG = {
+    buttonSelector: '.kilnfire-class-list-register-button',
+    eventName: 'class_registration_click',
+    maxWaitTime: 10000, // 10 seconds max wait for buttons to appear
+    checkInterval: 500   // Check every 500ms
+  };
+
+  // Track if we've already attached listeners to avoid duplicates
+  const trackedButtons = new WeakSet();
+
+  /**
+   * Send conversion event to Google Analytics
+   */
+  function sendConversionEvent(buttonElement) {
+    if (typeof gtag === 'undefined') {
+      console.warn('[Kiln Fire Tracking] gtag not available');
+      return;
+    }
+
+    const eventParams = {
+      'class_name': document.title,
+      'class_slug': window.location.pathname,
+      'button_text': buttonElement.textContent.trim(),
+      'event_category': 'class_registration',
+      'event_label': document.title
+    };
+
+    // Send the conversion event
+    gtag('event', CONFIG.eventName, eventParams);
+
+    console.log('[Kiln Fire Tracking] Conversion event sent:', eventParams);
+  }
+
+  /**
+   * Attach click listeners to registration buttons
+   */
+  function attachClickListeners() {
+    const buttons = document.querySelectorAll(CONFIG.buttonSelector);
+    let newButtonsFound = false;
+
+    buttons.forEach(function(button) {
+      // Skip if we've already tracked this button
+      if (trackedButtons.has(button)) {
+        return;
+      }
+
+      // Add click event listener
+      button.addEventListener('click', function() {
+        sendConversionEvent(button);
+      });
+
+      // Mark button as tracked
+      trackedButtons.add(button);
+      newButtonsFound = true;
+    });
+
+    if (newButtonsFound) {
+      console.log('[Kiln Fire Tracking] Attached listeners to', buttons.length, 'button(s)');
+    }
+
+    return buttons.length > 0;
+  }
+
+  /**
+   * Initialize tracking with multiple strategies
+   */
+  function initializeTracking() {
+    let attempts = 0;
+    const maxAttempts = CONFIG.maxWaitTime / CONFIG.checkInterval;
+
+    // Strategy 1: Check periodically for buttons
+    const intervalCheck = setInterval(function() {
+      attempts++;
+
+      if (attachClickListeners()) {
+        clearInterval(intervalCheck);
+        console.log('[Kiln Fire Tracking] Successfully initialized');
+      } else if (attempts >= maxAttempts) {
+        clearInterval(intervalCheck);
+        console.warn('[Kiln Fire Tracking] No buttons found after', CONFIG.maxWaitTime, 'ms');
+      }
+    }, CONFIG.checkInterval);
+
+    // Strategy 2: Use MutationObserver to catch dynamically added buttons
+    if (typeof MutationObserver !== 'undefined') {
+      const observer = new MutationObserver(function(mutations) {
+        attachClickListeners();
+      });
+
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+
+      // Stop observing after max wait time to prevent memory leaks
+      setTimeout(function() {
+        observer.disconnect();
+      }, CONFIG.maxWaitTime);
+    }
+
+    // Strategy 3: Try immediately in case buttons are already loaded
+    attachClickListeners();
+  }
+
+  // Start tracking when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeTracking);
+  } else {
+    // DOM is already ready
+    initializeTracking();
+  }
+})();
+</script>
+{% endif %}
