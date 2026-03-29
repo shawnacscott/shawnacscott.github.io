@@ -1,0 +1,11 @@
+---
+intro_image: "../../../images/coil_built_mug_with_kids.jpeg"
+title: "🤲🏽 Get Your Hands Dirty: Intro to Handbuilding Workshop"
+price: 90
+---
+
+$90 Per Person / Ages 8 and up
+
+<div class="kilnfire-upcoming-classes" data-org-id="308" data-template-id="2176" data-view="list"></div>
+
+<div class="my-4 prose max-w-none text-sm lg:text-base"><p><strong>No experience needed. Mess highly encouraged.</strong></p><p>Come join us at Hearthfire Clay for a 2.5-hour deep dive into the wonderfully tactile world of handbuilding pottery! Whether you're 8 or 80, a total first-timer or someone who just wants to play with clay again — this workshop is made for you.</p><p>You'll skip the wheel entirely and discover something even more fundamental: that your hands are incredible tools. Working directly with clay, you'll explore three core handbuilding techniques — <strong>pinching</strong>, <strong>coiling</strong>, and <strong>slab building</strong> — to shape your very own one-of-a-kind piece to take home (eventually — good things take time in the kiln!).</p><p><strong>Here's what you'll get into:</strong></p><ul><li>Wedging and prepping clay like a pro</li><li>Pinch pot fundamentals — the original pottery move</li><li>Coil building to add height, texture, and personality</li><li>Slab rolling and construction for clean, geometric forms</li><li>Smoothing, scoring, and surface decoration to make it <i>yours</i></li><li>A breakdown of what happens next: drying, firing, and glazing</li></ul><p>Our instructors keep things hands-on, low-pressure, and genuinely fun. You'll leave with new skills, a little clay under your fingernails, and a piece that's 100% handmade by you.</p><p><strong>Who's it for?</strong> Everyone! Adults, teens, and kids ages 8+ with an engaged adult are all welcome. This is a great date night, family outing, friend activity, or solo creative adventure.</p><p><strong>What's included:</strong> All clay, tools, and materials. Firing and glazing are included — your finished piece will be ready for pickup within 4-6 weeks.</p><p><strong>What to wear:</strong> Practical shoes, and something you don't mind getting dirty. Clay has opinions about clean clothes.</p></div>
