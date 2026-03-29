@@ -6,6 +6,11 @@ bodyClass: "page-class"
 <div class="container pb-6 pt-6 pt-md-10 pb-md-10">
   <div class="row justify-content-start">
     <h1 class="title">{{page.title}}</h1>
+    {% if page.intro_image %}
+      <div class="mt-2 col-12 col-md-8">
+        <img alt="{{ page.title }}" class="my-2 intro-image{% if page.intro_image_absolute %} intro-image-absolute{% endif %}{% if page.intro_image_hide_on_mobile %} intro-image-hide-mobile{% endif %}" src="{{ page.intro_image | relURL }}" />
+      </div>
+    {% endif %}
     <div class="col-12 col-md-8">
       <div class="class class-single">
         <div class="content">{{content}}</div>
@@ -14,6 +19,7 @@ bodyClass: "page-class"
   </div>
 </div>
 
+<script src="https://kilnfire.com/classembed.js"></script>
 {% if page.price %}
 <script>
   window.classPrice = {{ page.price }};
