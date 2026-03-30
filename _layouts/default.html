@@ -45,9 +45,11 @@
                  src="https://www.facebook.com/tr?id=967016925759425&ev=PageView&noscript=1"
   /></noscript>
   <!-- End Meta Pixel Code -->
+  {% include google-tag-manager-head.html %}
 </head>
 
 <body class='page {{layout.bodyClass}}'>
+  {% include google-tag-manager-body.html %}
   {% include main-menu-mobile.html %}
   <div id="wrapper" class="wrapper">
     {% include header.html headerClass='header-extra' %}
@@ -56,6 +58,5 @@
   {% include footer.html %}
   {% include sub-footer.html %}
   <script type="text/javascript" src="{{ '/assets/js/scripts.js' | relative_url }}"></script>
-  {% include google-analytics.html %}
 </body>
 </html>
