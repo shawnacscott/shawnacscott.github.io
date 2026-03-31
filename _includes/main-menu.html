@@ -14,8 +14,18 @@
       {% if item.children %}
       <ul class="sub-menu">
         {% for child in item.children %}
-        <li>
+        <li class="{% if child.inject_classes %}always-expanded{% endif %}">
           <a href="{{ child.url | relative_url }}">{{ child.name }}</a>
+          {% if child.inject_classes %}
+          <ul class="sub-menu always-visible">
+            {% assign active_classes = site.classes | where_exp: "class", "class.active != false" %}
+            {% for class in active_classes %}
+            <li>
+              <a href="{{ class.url | relative_url }}">{{ class.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
         </li>
         {% endfor %}
       </ul>

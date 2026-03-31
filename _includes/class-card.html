@@ -1,3 +1,4 @@
+{% if include.class.active != false %}
 <div class="col-12 col-md-4 mb-1">
   <div class="class class-summary">
     {% assign card_image = include.class.intro_image | default: "/images/orange-mint-pink-illustrated-pots.png" %}
@@ -27,3 +28,4 @@
     {% endif %}
   </div>
 </div>
+{% endif %}

@@ -96,6 +96,14 @@
             font-size: 20px;
             opacity: 0.8;
           }
+          .sub-menu {
+            &.always-visible {
+              display: block;
+            }
+            li a {
+              font-size: 16px;
+            }
+          }
         }
       }
     }

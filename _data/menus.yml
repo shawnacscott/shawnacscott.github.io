@@ -40,6 +40,7 @@ main:
       - name: "All Classes"
         url: "/classes/"
         weight: 1
+        inject_classes: true
       - name: "Purchase Gift Cards"
         url: "https://hearthfireclay.kilnfire.com/gift-card"
         weight: 2

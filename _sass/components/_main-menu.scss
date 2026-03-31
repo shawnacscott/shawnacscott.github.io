@@ -85,6 +85,7 @@
         z-index: 100;
         li {
           list-style: none;
+          position: relative;
           a {
             display: block;
             padding: 8px 20px;
@@ -94,6 +95,21 @@
             &:hover {
               background: #f8f8f8;
               text-decoration: none;
+            }
+          }
+          .sub-menu {
+            position: relative;
+            top: 0;
+            left: 0;
+            box-shadow: none;
+            padding: 0;
+            margin-left: 15px;
+            &.always-visible {
+              display: block;
+            }
+            li a {
+              padding: 6px 20px;
+              font-size: 0.85rem;
             }
           }
         }
