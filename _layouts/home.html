@@ -26,17 +26,7 @@ bodyClass: "page-home"
     <div class="row justify-content-start">
       {% assign limit = site.home.limit_classes | default: 6 %}
       {% for class in site.classes limit: limit %}
-      <div class="col-12 col-md-4 mb-1">
-        <div class="class class-summary">
-          <div class="class-content">
-            <h2 class="class-title">
-              <a href="{{ class.url | relative_url }}">{{ class.title }}</a>
-            </h2>
-            <p>{{ class.content | markdownify | strip_html | truncate: 200 }}</p>
-          </div>
-          <a class="button button-primary" href="{{ class.registration_url }}">Register →</a>
-        </div>
-      </div>
+        {% include class-card.html class=class show_learn_more=true %}
       {% endfor %}
     </div>
   </div>

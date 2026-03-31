@@ -1,0 +1,29 @@
+<div class="col-12 col-md-4 mb-1">
+  <div class="class class-summary">
+    {% assign card_image = include.class.intro_image | default: "/images/orange-mint-pink-illustrated-pots.png" %}
+    {% if card_image %}
+    <div class="class-image">
+      <img alt="{{ include.class.title }}" src="{{ card_image | relative_url }}" style="width: 100%; height: auto; object-fit: cover;" />
+    </div>
+    {% endif %}
+    <div class="class-content">
+      <h2 class="class-title">
+        <a href="{{ include.class.url | relative_url }}">{{ include.class.title }}</a>
+      </h2>
+      {% if include.class.price or include.class.min_age %}
+      <p class="class-meta">
+        {% if include.class.price %}${{ include.class.price }}{% endif %}
+        {% if include.class.price and include.class.min_age %} • {% endif %}
+        {% if include.class.min_age %}Ages {{ include.class.min_age }}+{% endif %}
+      </p>
+      {% endif %}
+      <p>{{ include.class.content | markdownify | strip_html | truncate: 200 }}</p>
+      {% if include.show_learn_more %}
+      <p><a href="{{ include.class.url | relative_url }}">Learn more →</a></p>
+      {% endif %}
+    </div>
+    {% if include.class.registration_url %}
+    <a class="button button-primary" href="{{ include.class.registration_url }}">Register →</a>
+    {% endif %}
+  </div>
+</div>
