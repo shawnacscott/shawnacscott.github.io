@@ -13,7 +13,12 @@ bodyClass: "page-class"
     {% endif %}
     <div class="col-12 col-md-8">
       <div class="class class-single">
-        <div class="content">{{content}}</div>
+        <div class="content">
+          {{% if page.price and page.min_age %}}
+            <p>$<span id="price">{{page.price}}</span> Per Person / Ages {{page.min_age}} and up</p>
+          {{% endif }}
+          {{content}}
+        </div>
       </div>
     </div>
   </div>
