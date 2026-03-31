@@ -1,5 +1,5 @@
 ---
-intro_image: "../../../images/carved_greenware_mug_with_hands.jpeg"
+intro_image: "/images/carved_greenware_mug_with_hands.jpeg"
 title: "☕ Your Perfect Morning Cup Workshop"
 price: 120
 min_age: 18

@@ -1,5 +1,5 @@
 ---
-intro_image: "../../../images/coil_built_mug_with_kids.jpeg"
+intro_image: "/images/coil_built_mug_with_kids.jpeg"
 title: "🤲🏽 Get Your Hands Dirty: Intro to Handbuilding Workshop"
 price: 90
 min_age: 8
