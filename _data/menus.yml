@@ -1,4 +1,9 @@
 main:
+  - name: "All Classes"
+    url: "/classes/"
+    weight: 0
+    inject_classes: true
+    mobile_only: true
   - name: "About"
     url: "/about/"
     weight: 1
@@ -27,15 +32,20 @@ main:
   - name: "Memberships"
     url: "https://hearthfireclay.kilnfire.com/join-waitlist"
     weight: 3
+  - name: "Purchase Gift Cards"
+    url: "https://hearthfireclay.kilnfire.com/gift-card"
+    weight: 4
+    mobile_only: true
   - name: "Sign in"
     url: "https://hearthfireclay.kilnfire.com"
-    weight: 4
+    weight: 5
     class: "button button-outline"
   - name: "Register for a Class →"
     url: "/classes/"
-    weight: 5
+    weight: 6
     class: "button"
     remove_caret: true
+    desktop_only: true
     children:
       - name: "All Classes"
         url: "/classes/"

@@ -7,3 +7,15 @@ menuTrigger.onclick = function() {
     menuTrigger.classList.toggle('is-active')
     body.classList.toggle('lock-scroll')
 }
+
+// Mobile menu submenu toggles
+document.addEventListener('DOMContentLoaded', function() {
+    var submenuToggles = document.querySelectorAll('.main-menu-mobile .submenu-toggle');
+    submenuToggles.forEach(function(toggle) {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            var parentLi = this.parentElement;
+            parentLi.classList.toggle('submenu-open');
+        });
+    });
+});

@@ -2,16 +2,34 @@
   {% assign mainmenu = site.data.menus.main | sort: 'weight'  %}
   <ul>
     {% for item in mainmenu %}
-    <li class="{% if item.url == page.url %}active{% endif %}">
+    {% unless item.desktop_only %}
+    <li class="{% if item.url == page.url %}active{% endif %}{% if item.children or item.inject_classes %} has-children{% endif %}{% if item.inject_classes %} always-expanded{% endif %}">
+      {% if item.inject_classes %}
       <a href="{{ item.url | relative_url }}"{% if item.class %} class="{{ item.class }}"{% endif %}>
         {{ item.name }}
-        {% if item.children %}
+      </a>
+      {% elsif item.children %}
+      <a href="javascript:void(0)" class="{% if item.class %}{{ item.class }} {% endif %}submenu-toggle">
+        {{ item.name }}
         <svg class="caret" width="16" height="16" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M2.5 3.5L5 6L7.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        {% endif %}
       </a>
-      {% if item.children %}
+      {% else %}
+      <a href="{{ item.url | relative_url }}"{% if item.class %} class="{{ item.class }}"{% endif %}>
+        {{ item.name }}
+      </a>
+      {% endif %}
+      {% if item.inject_classes %}
+      <ul class="sub-menu always-visible">
+        {% assign active_classes = site.classes | where_exp: "class", "class.active != false" %}
+        {% for class in active_classes %}
+        <li>
+          <a href="{{ class.url | relative_url }}">{{ class.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% elsif item.children %}
       <ul class="sub-menu">
         {% for child in item.children %}
         <li>
@@ -31,6 +49,7 @@
       </ul>
       {% endif %}
     </li>
+    {% endunless %}
     {% endfor %}
   </ul>
 </div>
