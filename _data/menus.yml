@@ -21,6 +21,7 @@ main:
         url: "/contact/#visiting-our-location"
         weight: 4
   - name: "Support"
+    url: "/donate/"
     weight: 2
     children:
       - name: "Donate"
