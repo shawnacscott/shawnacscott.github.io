@@ -7,7 +7,10 @@ bodyClass: "page-basic"
   <h1 class="title">{{page.title}}</h1>
   <a href="#calendar-view">See calendar view</a>
   <div class="row justify-content-start mt-6 mb-6">
-    {% for class in site.classes %}
+    {% assign classes_with_weight = site.classes | where_exp: "class", "class.weight" | sort: "weight" %}
+    {% assign classes_without_weight = site.classes | where_exp: "class", "class.weight == nil" %}
+    {% assign sorted_classes = classes_with_weight | concat: classes_without_weight %}
+    {% for class in sorted_classes %}
       {% include class-card.html class=class show_learn_more=true %}
     {% endfor %}
   </div>

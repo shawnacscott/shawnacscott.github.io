@@ -1,6 +1,7 @@
 ---
 intro_image: "/images/carved_greenware_mug_with_hands.jpeg"
 title: "☕ Your Perfect Morning Cup Workshop"
+weight: 2
 price: 120
 min_age: 18
 registration_url: "https://hearthfireclay.kilnfire.com/classes/your-perfect-cup/rj5asu/register"

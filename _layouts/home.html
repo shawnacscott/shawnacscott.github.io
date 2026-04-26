@@ -25,7 +25,10 @@ bodyClass: "page-home"
   <div class="container pt-6 pb-6 pb-md-10">
     <div class="row justify-content-start">
       {% assign limit = site.home.limit_classes | default: 6 %}
-      {% for class in site.classes limit: limit %}
+      {% assign classes_with_weight = site.classes | where_exp: "class", "class.weight" | sort: "weight" %}
+      {% assign classes_without_weight = site.classes | where_exp: "class", "class.weight == nil" %}
+      {% assign sorted_classes = classes_with_weight | concat: classes_without_weight %}
+      {% for class in sorted_classes limit: limit %}
         {% include class-card.html class=class show_learn_more=true %}
       {% endfor %}
     </div>

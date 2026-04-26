@@ -1,5 +1,6 @@
 ---
 title: "🫖 Beginner Intro to Ceramics: 6-weeks"
+weight: 1
 price: 400
 min_age: 16
 registration_url: "https://hearthfireclay.kilnfire.com/classes/beginner-intro-to-ceramics/"
