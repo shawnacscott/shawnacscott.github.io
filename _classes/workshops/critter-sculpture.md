@@ -4,6 +4,7 @@ title: "🧑‍🌾 Gnomes, Critters & Clay: Spring Garden Sculpture Workshop"
 price: 90
 min_age: 8
 registration_url: "https://hearthfireclay.kilnfire.com/classes/gnomes-critters-clay-spring-sculpture-workshop/u3hhzz/register"
+active: false
 ---
 
 <div class="kilnfire-upcoming-classes" data-org-id="308" data-template-id="2189" data-view="list"></div>
