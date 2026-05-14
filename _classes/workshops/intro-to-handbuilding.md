@@ -4,6 +4,7 @@ title: "🤲🏽 Get Your Hands Dirty: Intro to Handbuilding Workshop"
 price: 90
 min_age: 8
 registration_url: "https://hearthfireclay.kilnfire.com/classes/intro-to-handbuilding/"
+active: false
 ---
 
 <div class="kilnfire-upcoming-classes" data-org-id="308" data-template-id="2176" data-view="list"></div>

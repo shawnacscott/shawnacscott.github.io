@@ -5,6 +5,7 @@ weight: 2
 price: 120
 min_age: 18
 registration_url: "https://hearthfireclay.kilnfire.com/classes/your-perfect-cup/rj5asu/register"
+active: false
 ---
 
 <div class="kilnfire-upcoming-classes" data-org-id="308" data-template-id="2186" data-view="list"></div>
